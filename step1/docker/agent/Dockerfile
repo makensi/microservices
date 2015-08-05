@@ -3,20 +3,16 @@ FROM ubuntu:latest
 # dependencies
 RUN apt-get update && apt-get install -y unzip nginx supervisor dnsmasq dnsutils vim
 ADD https://dl.bintray.com/mitchellh/consul/0.5.2_linux_amd64.zip /tmp/consul.zip
-ADD https://dl.bintray.com/mitchellh/consul/0.5.2_web_ui.zip /tmp/consul_ui.zip
 # preparing
 WORKDIR /tmp
-RUN mkdir -p /var/consul /usr/share/consul/ui
+RUN mkdir -p /var/consul /usr/share/consul
 RUN unzip /tmp/consul.zip
-RUN unzip /tmp/consul_ui.zip
 RUN mv /tmp/consul /usr/bin
-RUN mv /tmp/dist/* /usr/share/consul/ui
-RUN rm -rf /tmp/consul.zip /tmp/consul_ui.zip /tmp/dist
+RUN rm -rf /tmp/consul.zip
 # copying configuration
 ADD consul /etc/consul.d
 ADD nginx /etc/nginx/sites-enabled
 ADD supervisor /etc/supervisor/conf.d
-# Exposing service ports
-EXPOSE 8400 8500 8600 8300 8301 8302
+ADD static /usr/share/nginx/html
 # starting services
 CMD ["/usr/bin/supervisord", "-n"]

@@ -1,0 +1,7 @@
+{
+	"service": {
+		"name": "ui",
+		"tags": [],
+		"port": 8500
+	}
+}
