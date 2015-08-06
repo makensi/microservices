@@ -1,32 +1,35 @@
-Docker + Consul + Nginx
+# Docker + Consul + Nginx
 
-	  M        Http1
+	Under development - working on consul template for balancing web agents.
+
+The test create a pool of three master nodes and two web agent:
+
+	  M        Web1
 	/   \      ...
-	M - M      HttpN
+	M - M      WebN
 
 M = Master (consul server mode)
 HttpX = Ngnix (agent) 
 
+The example provide the docker creation for consul servers (masters) and web server (agent).
 
-first build after run
+## Build and run
 
-# to build it: docker build -t "makensi/microservices:step1-master" master
-# to run it: docker run --name master1 --hostname master1 -d makensi/microservices:step1-master 
-# to execute consul:
-# 1: docker exec -it master1 /bin/bash
-# 2: consul agent -config-dir /etc/consul.d
+Build dockers
+	
+	./build.sh
 
+Execute the example
 
-# Client Addr: 127.0.0.1 (HTTP: 8500, DNS: 8600, RPC: 8400)
-# Cluster Addr: X.Y.Z.W (LAN: 8301, WAN: 8302)
-# Raft: 8300
+	./run
 
-localhost:8000 consul ui
-localhost:8001 webserver
-localhost:8002 dns
+## Exposed ports
 
-
-Dnsmasq to webserver:
-
-sudo vi /etc/dnsmasq.conf 
-sudo vi /etc/dnsmasq.d/consul
+1. dns - 8600.
+2. http - 8500
+3. rpc - 8400
+4. lan - 8301
+5. wan - 8302
+6. rpc - 8300
+7. ui - 8200
+8. web - 8100
