@@ -1,0 +1,15 @@
+upstream loadbalancer {
+	{{range service "web"}}
+	server {{.Address}}:{{.Port}};{{end}}
+}
+
+server {
+	listen 80;
+	listen [::]:80 default_server ipv6only=on;
+
+	server_name localhost;
+
+	location / {
+		proxy_pass http://loadbalancer;
+	}
+}

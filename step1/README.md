@@ -4,12 +4,13 @@
 
 The test create a pool of three master nodes and two web agent:
 
-	  M        Web1
-	/   \      ...
-	M - M      WebN
+	  M          W1
+	/   \   LB   ...
+	M - M        WN
 
-M = Master (consul server mode)
-HttpX = Ngnix (agent) 
+M = Master (consul server mode) - consul + ui
+LB = Load balancer (consul agent) - nginx + consul + consul template
+WN = Web (consul agent) - nginx + consul 
 
 The example provide the docker creation for consul servers (masters) and web server (agent).
 
@@ -33,3 +34,5 @@ Execute the example
 6. rpc - 8300
 7. ui - 8200
 8. web - 8100
+
+Architecture: x86_64
