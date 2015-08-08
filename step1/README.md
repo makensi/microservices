@@ -1,8 +1,6 @@
 # Docker + Consul + Nginx
 
-	Under development - working on consul template for balancing web agents.
-
-The test create a pool of three master nodes and two web agent:
+The test create a pool of three master nodes a load balancer for two web agent:
 
 	  M          W1
 	/   \   LB   ...
@@ -12,19 +10,35 @@ M = Master (consul server mode) - consul + ui
 LB = Load balancer (consul agent) - nginx + consul + consul template
 WN = Web (consul agent) - nginx + consul 
 
-The example provide the docker creation for consul servers (masters) and web server (agent).
+## Requirements
+
+Below the specifications where it example was tested:
+
+1. OS: Linux Mint 17.2 Rafaela
+	1. Kernel: 3.16.0-38-generic #52~14.04.1-Ubuntu 
+	2. Architecture: x86_64
+2. Docker: version 1.7.1, build 786b29d
+	1. docker image: ubuntu:latest
+3. consul: 0.5.2_linux_amd64
+4. consul-template: 0.10.0_linux_amd64
 
 ## Build and run
 
 Build dockers
 	
-	./build.sh
+```shell
+./build.sh
+```
 
 Execute the example
 
-	./run
+```shell
+./run
+``` 
 
-## Exposed ports
+## Ports 
+
+Once the example is running these is the list of available ports:
 
 1. dns - 8600.
 2. http - 8500
@@ -34,5 +48,3 @@ Execute the example
 6. rpc - 8300
 7. ui - 8200
 8. web - 8100
-
-Architecture: x86_64
