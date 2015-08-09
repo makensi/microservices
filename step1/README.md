@@ -22,6 +22,10 @@ Below the specifications where it example was tested:
 3. consul: 0.5.2_linux_amd64
 4. consul-template: 0.10.0_linux_amd64
 
+## How to works
+
+![Load balancer update process](diagrams/images/lb-update.png)
+
 ## Build and run
 
 Build dockers
@@ -40,7 +44,7 @@ Execute the example
 
 Once the example is running these is the list of available ports:
 
-1. dns - 8600.
+1. dns - 8600 - not bound to 53 because I am using dnsmasq locally.
 2. http - 8500
 3. rpc - 8400
 4. lan - 8301

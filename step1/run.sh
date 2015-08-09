@@ -44,3 +44,8 @@ docker run --name web2 --hostname web2 \
 	--link master2:master2 \
 	--link master3:master3 \
 	-d makensi/microservices:step1-web
+docker run --name web3 --hostname web3 \
+	--link master1:master1 \
+	--link master2:master2 \
+	--link master3:master3 \
+	-d makensi/microservices:step1-web
