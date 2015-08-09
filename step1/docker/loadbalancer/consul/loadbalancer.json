@@ -1,0 +1,7 @@
+{
+	"service": {
+		"name": "loadbalancer",
+		"tags": [],
+		"port": 80
+	}
+}
