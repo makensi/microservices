@@ -1,4 +1,8 @@
 #!/bin/bash
+docker build -t makensi/microservices:step1-base docker/base
+echo
+echo "master base"
+echo
 docker build -t makensi/microservices:step1-master docker/master
 echo
 echo "master build"
