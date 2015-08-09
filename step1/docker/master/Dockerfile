@@ -18,6 +18,6 @@ COPY nginx/default /etc/nginx/sites-enabled/default
 COPY nginx/nginx.conf /etc/nginx/nginx.conf
 ADD supervisor /etc/supervisor/conf.d
 # Exposing service ports
-EXPOSE 8400 8500 8600 8300 8301 8302
+EXPOSE 8300 8301 8302 8400 8500 8600 8600/udp
 # starting services
 CMD ["/usr/bin/supervisord", "-n"]

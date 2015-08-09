@@ -2,13 +2,13 @@
 
 The test create a pool of three master nodes a load balancer for two web agent:
 
-	  M          W1
-	/   \   LB   ...
-	M - M        WN
+	  M        / W1
+	/   \   LB - ...
+	M - M      \ WN
 
-M = Master (consul server mode) - consul + ui
-LB = Load balancer (consul agent) - nginx + consul + consul template
-WN = Web (consul agent) - nginx + consul 
+* M = Master (consul server mode) - consul + ui
+* LB = Load balancer (consul agent) - nginx + consul + consul template
+* WN = Web (consul agent) - nginx + consul 
 
 ## Requirements
 
