@@ -1,11 +1,6 @@
 {
-	"client_addr": "0.0.0.0",
     "server": true,
     "bootstrap_expect": 3,
-    "datacenter": "step1",
-    "data_dir": "/usr/share/consul",
-    "log_level": "DEBUG",
     "ui_dir": "/usr/share/consul/ui",
-    "start_join": ["master1", "master2", "master3"],
-    "disable_update_check": true
+    "start_join": ["master1", "master2", "master3"]
 }

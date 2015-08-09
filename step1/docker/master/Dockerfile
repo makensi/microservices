@@ -9,7 +9,7 @@ RUN mv /tmp/dist/* /usr/share/consul/ui
 RUN rm -rf /tmp/consul_ui.zip /tmp/dist
 # copying configuration
 ADD consul /etc/consul.d
-COPY nginx /etc/nginx/sites-enabled
+ADD nginx /etc/nginx/sites-enabled
 ADD supervisor /etc/supervisor/conf.d
 # Exposing service ports
 EXPOSE 8300 8301 8302 8400 8500 8600 8600/udp
