@@ -42,10 +42,30 @@ Execute the example
 
 ## Directories
 
-* base, makensi/microservices:step1-base
-* server,
-* loadbalancer
-* web
+* base, 
+	* docker: makensi/microservices:step1-base
+	* include:
+		* nginx
+		* consul
+		* supervisor
+* server, 
+	* docker: makensi/microservices:step1-server
+		* inheritance: makensi/microservices:step1-base
+	* include:
+		* consul
+		* nginx
+* loadbalancer, 
+	* docker: makensi/microservices:step1-loadbalancer
+		* inheritance: makensi/microservices:step1-base
+	* include:
+		* consul
+		* consul-template
+		* supervisor
+* web, 
+	* docker: makensi/microservices:step1-web
+		* inheritance: makensi/microservices:step1-base
+	* include:
+		* consul
 
 ## Ports 
 
