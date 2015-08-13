@@ -1,6 +1,0 @@
-{
-    "server": true,
-    "bootstrap_expect": 3,
-    "ui_dir": "/usr/share/consul/ui",
-    "start_join": ["master1", "master2", "master3"]
-}

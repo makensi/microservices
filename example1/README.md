@@ -40,6 +40,13 @@ Execute the example
 ./run
 ``` 
 
+## Directories
+
+* base, makensi/microservices:step1-base
+* server,
+* loadbalancer
+* web
+
 ## Ports 
 
 Once the example is running these is the list of available ports:

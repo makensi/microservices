@@ -4,5 +4,6 @@
 	"datacenter": "step1",
 	"data_dir": "/usr/share/consul",
 	"log_level": "DEBUG",
-	"disable_update_check": true
+	"disable_update_check": true,
+    "start_join": ["server1", "server2", "server3"]
 }

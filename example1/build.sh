@@ -7,12 +7,12 @@ echo
 echo "base built"
 echo
 sleep 1
-docker build -t makensi/microservices:step1-master docker/master
+docker build -t makensi/microservices:step1-server docker/server
 if [ $? -ne 0 ]; then
     exit 1
 fi
 echo
-echo "master built"
+echo "server built"
 echo
 sleep 1
 docker build -t makensi/microservices:step1-loadbalancer docker/loadbalancer
