@@ -10,7 +10,6 @@ RUN rm -rf /tmp/consul_ui.zip /tmp/dist
 # copying configuration
 ADD consul /etc/consul.d
 ADD nginx /etc/nginx/sites-enabled
-ADD supervisor /etc/supervisor/conf.d
 # Exposing service ports
 EXPOSE 8300 8301 8302 8400 8500 8600 8600/udp
 # starting services

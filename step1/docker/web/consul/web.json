@@ -1,7 +1,13 @@
 {
-	"service": {
-		"name": "web",
-		"tags": [],
-		"port": 80
-	}
+    "service": {
+        "name": "web",
+        "tags": ["nginx"],
+        "port": 80,
+        "check": {
+            "name": "http-availability",
+            "http": "http://localhost/health",
+            "interval": "10s",
+            "timeout": "1s"
+        }
+    }
 }

@@ -9,7 +9,6 @@ RUN mv /tmp/consul-template_0.10.0_linux_amd64/consul-template /usr/bin
 RUN rm -rf /tmp/consul-template_0.10.0_linux_amd64*
 # copying configuration
 ADD consul /etc/consul.d
-ADD nginx /etc/nginx/sites-enabled
 ADD supervisor /etc/supervisor/conf.d
 COPY consul-template/default.ctmpl /usr/share/consul/templates/default.ctmpl
 COPY consul-template/consul-template.conf /etc/consul-template.conf

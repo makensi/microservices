@@ -52,3 +52,12 @@ Once the example is running these is the list of available ports:
 6. rpc - 8300
 7. ui - 8200
 8. web - 8100
+
+# DNS check
+
+Once executed `run.sh` you can check the dns interface of consul using dig (dnsutils package):
+
+dig @localhost -p 8600 web.service.consul
+dig @localhost -p 8600 loadbalancer.service.consul
+dig @localhost -p 8600 consul.service.consul
+

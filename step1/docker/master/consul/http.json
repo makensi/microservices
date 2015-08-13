@@ -1,7 +1,0 @@
-{
-	"service": {
-		"name": "http",
-		"tags": [],
-		"port": 80
-	}
-}
