@@ -1,4 +1,4 @@
-FROM makensi/microservices:step1-base
+FROM makensi/microservices:example1-base
 # dependencies
 ADD https://github.com/hashicorp/consul-template/releases/download/v0.10.0/consul-template_0.10.0_linux_amd64.tar.gz /tmp/consul-template_0.10.0_linux_amd64.tar.gz
 # preparing

@@ -13,13 +13,13 @@ docker run --name server1 --hostname server1 \
     -p 8400:8400 \
     -p 8500:8500 \
     -p 8600:8600/udp \
-	-d makensi/microservices:step1-server
+	-d makensi/microservices:example1-server
 docker run --name server2 --hostname server2 \
 	--link server1:server1 \
-	-d makensi/microservices:step1-server
+	-d makensi/microservices:example1-server
 docker run --name server3 --hostname server3 \
 	--link server1:server1 \
-	-d makensi/microservices:step1-server
+	-d makensi/microservices:example1-server
 #
 echo
 echo "running loadbalancer"
@@ -29,7 +29,7 @@ docker run --name loadbalancer --hostname loadbalancer \
 	--link server2:server2 \
 	--link server3:server3 \
 	-p 8100:80 \
-	-d makensi/microservices:step1-loadbalancer
+	-d makensi/microservices:example1-loadbalancer
 #
 echo
 echo "running webs"
@@ -38,14 +38,14 @@ docker run --name web1 --hostname web1 \
 	--link server1:server1 \
 	--link server2:server2 \
 	--link server3:server3 \
-	-d makensi/microservices:step1-web
+	-d makensi/microservices:example1-web
 docker run --name web2 --hostname web2 \
 	--link server1:server1 \
 	--link server2:server2 \
 	--link server3:server3 \
-	-d makensi/microservices:step1-web
+	-d makensi/microservices:example1-web
 docker run --name web3 --hostname web3 \
 	--link server1:server1 \
 	--link server2:server2 \
 	--link server3:server3 \
-	-d makensi/microservices:step1-web
+	-d makensi/microservices:example1-web
