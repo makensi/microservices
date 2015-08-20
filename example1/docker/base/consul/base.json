@@ -1,7 +1,7 @@
 {
 	"client_addr": "0.0.0.0",
 	"server": false,
-	"datacenter": "step1",
+	"datacenter": "example1",
 	"data_dir": "/usr/share/consul",
 	"log_level": "DEBUG",
 	"disable_update_check": true,
