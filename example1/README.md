@@ -43,27 +43,27 @@ Execute the example
 ## Directories
 
 * base, 
-	* docker: makensi/microservices:step1-base
+	* docker: makensi/microservices:example1-base
 	* include:
 		* nginx
 		* consul
 		* supervisor
 * server, 
-	* docker: makensi/microservices:step1-server
-		* inheritance: makensi/microservices:step1-base
+	* docker: makensi/microservices:example1-server
+		* inheritance: makensi/microservices:example1-base
 	* include:
 		* consul
 		* nginx
 * loadbalancer, 
-	* docker: makensi/microservices:step1-loadbalancer
-		* inheritance: makensi/microservices:step1-base
+	* docker: makensi/microservices:example1-loadbalancer
+		* inheritance: makensi/microservices:example1-base
 	* include:
 		* consul
 		* consul-template
 		* supervisor
 * web, 
-	* docker: makensi/microservices:step1-web
-		* inheritance: makensi/microservices:step1-base
+	* docker: makensi/microservices:example1-web
+		* inheritance: makensi/microservices:example1-base
 	* include:
 		* consul
 
@@ -84,7 +84,9 @@ Once the example is running these is the list of available ports:
 
 Once executed `run.sh` you can check the dns interface of consul using dig (dnsutils package):
 
+
+```shell
 dig @localhost -p 8600 web.service.consul
 dig @localhost -p 8600 loadbalancer.service.consul
 dig @localhost -p 8600 consul.service.consul
-
+```
