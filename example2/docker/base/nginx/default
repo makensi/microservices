@@ -1,0 +1,18 @@
+server {
+	listen 80;
+	listen [::]:80 ipv6only=on default_server;
+
+	root /usr/share/nginx/html;
+	index index.html index.htm;
+
+	server_name localhost;
+
+	location = /health {
+		try_files /health.html /;
+	}
+	
+	location / {
+		try_files $uri $uri/ /index.html;
+	}
+
+}

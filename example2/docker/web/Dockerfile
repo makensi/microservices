@@ -1,0 +1,8 @@
+FROM makensi/microservices:example2-base
+# preparing
+WORKDIR /tmp
+# copying configuration
+ADD consul /etc/consul.d
+ADD static /usr/share/nginx/html
+# starting services
+CMD ["/usr/bin/supervisord", "-n"]
