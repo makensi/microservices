@@ -1,0 +1,30 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.require_version ">= 1.7.4"
+VAGRANTFILE_API_VERSION = "2"
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+	# disable check
+	config.vm.box_check_update = false
+
+	if Vagrant.has_plugin?("vagrant-cachier")
+		config.cache.scope = :box
+	end
+
+	(1..1).each do |i|
+		config.vm.define "consul-vm-0#{i}" do |node|
+			node.vm.provider "virtualbox" do |virtualbox|
+				virtualbox.memory = 512
+				virtualbox.name = "consul-vm-0#{i}"
+			end
+			node.vm.box = "ubuntu/trusty64"
+			# fixed mode: node.vm.network "private_network", ip: "172.26.0.1#{i}"
+			node.vm.network "private_network", type: "dhcp"
+			node.vm.synced_folder "../docker", "/docker"
+			node.vm.hostname = "consul#{i}"
+			node.vm.provision "docker"
+			node.vm.provision :shell, path: "consul.sh", args: "#{i}"
+		end
+	end
+
+end

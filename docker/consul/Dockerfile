@@ -1,4 +1,4 @@
-FROM makensi/microservices:example1-base
+FROM makensi/microservices:example-base
 # dependencies
 ADD https://dl.bintray.com/mitchellh/consul/0.5.2_web_ui.zip /tmp/consul_ui.zip
 # preparing

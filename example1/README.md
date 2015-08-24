@@ -43,27 +43,27 @@ Execute the example
 ## Directories
 
 * base, 
-	* docker: makensi/microservices:example1-base
+	* docker: makensi/microservices:example-base
 	* include:
 		* nginx
 		* consul
 		* supervisor
 * server, 
-	* docker: makensi/microservices:example1-server
-		* inheritance: makensi/microservices:example1-base
+	* docker: makensi/microservices:example-server
+		* inheritance: makensi/microservices:example-base
 	* include:
 		* consul
 		* nginx
 * loadbalancer, 
-	* docker: makensi/microservices:example1-loadbalancer
-		* inheritance: makensi/microservices:example1-base
+	* docker: makensi/microservices:example-nginx-proxy
+		* inheritance: makensi/microservices:example-base
 	* include:
 		* consul
 		* consul-template
 		* supervisor
 * web, 
-	* docker: makensi/microservices:example1-web
-		* inheritance: makensi/microservices:example1-base
+	* docker: makensi/microservices:example-nginx
+		* inheritance: makensi/microservices:example-base
 	* include:
 		* consul
 

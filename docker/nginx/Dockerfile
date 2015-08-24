@@ -1,4 +1,4 @@
-FROM makensi/microservices:example2-base
+FROM makensi/microservices:example-base
 # preparing
 WORKDIR /tmp
 # copying configuration

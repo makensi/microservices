@@ -5,5 +5,5 @@
 	"data_dir": "/usr/share/consul",
 	"log_level": "DEBUG",
 	"disable_update_check": true,
-    "start_join": ["server1", "server2", "server3"]
+    "start_join": ["consul1", "consul2", "consul3"]
 }

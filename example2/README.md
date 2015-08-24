@@ -32,27 +32,27 @@ Once done it automatically run the dockers inside the swarm-agents
 ## Directories
 
 * base, 
-	* docker: makensi/microservices:example2-base
+	* docker: makensi/microservices:example-base
 	* include:
 		* nginx
 		* consul
 		* supervisor
 * server, 
-	* docker: makensi/microservices:example2-server
-		* inheritance: makensi/microservices:example2-base
+	* docker: makensi/microservices:example-server
+		* inheritance: makensi/microservices:example-base
 	* include:
 		* consul
 		* nginx
 * loadbalancer, 
-	* docker: makensi/microservices:example2-loadbalancer
-		* inheritance: makensi/microservices:example2-base
+	* docker: makensi/microservices:example-nginx-proxy
+		* inheritance: makensi/microservices:example-base
 	* include:
 		* consul
 		* consul-template
 		* supervisor
 * web, 
-	* docker: makensi/microservices:example2-web
-		* inheritance: makensi/microservices:example2-base
+	* docker: makensi/microservices:example-nginx
+		* inheritance: makensi/microservices:example-base
 	* include:
 		* consul
 
