@@ -1,14 +1,8 @@
 #!/bin/bash
 #
-. unset.sh
+. unset-swarm.sh
 #
-docker-machine stop swarm-master
-docker-machine rm swarm-master
-for i in $(seq 0 1 2)
-	do
-	docker-machine stop swarm-agent-0$i
-	docker-machine rm swarm-agent-0$i
-done
+. remove-swarm.sh
 # create a swarm and if exists will removed it (--rm)
 echo "Creating swarm"
 export DOCKER_SWARM_TOKEN="$(docker run --rm swarm create)"
@@ -27,7 +21,7 @@ docker-machine create \
 	swarm-master
 #
 #
-for i in $(seq 0 1 2)
+for i in $(seq 1 1 3)
 	do 
 	#
 	echo "Building vm $i"
@@ -42,10 +36,3 @@ for i in $(seq 0 1 2)
 	#
 	echo "Launching server$i"
 done
-#
-echo "$(docker-machine env --swarm swarm-master)"
-#
-#
-eval $(docker-machine env --swarm swarm-master)
-#
-. ../example1/build.sh

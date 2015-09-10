@@ -1,0 +1,7 @@
+# https://docs.docker.com/registry/deploying/
+registry:
+  restart: always
+  image: registry:2
+  ports:
+    - 5000:5000
+  container_name: registry
